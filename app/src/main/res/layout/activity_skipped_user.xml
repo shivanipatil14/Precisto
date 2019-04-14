@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SkippedUser">
 
     <android.support.v4.widget.DrawerLayout
-        android:id="@+id/main_drawer_layout"
+        android:id="@+id/skipped_drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         tools:openDrawer="start">
 
         <include
-            layout="@layout/main_app_bar"
+            layout="@layout/skipped_app_bar"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -22,9 +23,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:id="@+id/main_drawer_view"
-            app:headerLayout="@layout/main_user_drawer_nav_head"
-            app:menu="@menu/main_user_drawer_menu"/>
+            android:id="@+id/skipped_drawer_view"
+            app:headerLayout="@layout/skipped_user_drawer_nav_head"
+            app:menu="@menu/skipped_user_drawer_menu"/>
 
 
     </android.support.v4.widget.DrawerLayout>

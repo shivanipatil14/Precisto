@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/drawer_services_skipped"
+            android:title="Services"
+            android:icon="@drawable/ic_services"/>
+        <item
+            android:id="@+id/drawer_faq_skipped"
+            android:title="FAQs"
+            android:icon="@drawable/ic_faq"/>
+
+    </group>
+
+    <item android:title="Connect to us">
+        <menu>
+
+            <item
+                android:id="@+id/drawer_contact_skipped"
+                android:title="Contact us"
+                android:icon="@drawable/ic_contact"/>
+            <item
+                android:id="@+id/drawer_about_skipped"
+                android:title="About us"
+                android:icon="@drawable/ic_about"/>
+        </menu>
+    </item>
+
+    <item android:title="Intel you need know">
+        <menu>
+            <item
+                android:id="@+id/drawer_tnc_skipped"
+                android:title="Terms and Conditions"/>
+            <item
+                android:id="@+id/drawer_privacy_policy_skipped"
+                android:title="Privacy Policies"/>
+        </menu>
+    </item>
+
+</menu>
