@@ -5,6 +5,4 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="@layout/main_app_bar">
-
-</RelativeLayout>
+    tools:showIn="@layout/main_app_bar"/>

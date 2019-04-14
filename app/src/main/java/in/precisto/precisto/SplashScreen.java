@@ -13,7 +13,6 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EasySplashScreen easySplashScreen = new EasySplashScreen(SplashScreen.this)
-                .withFullScreen()
                 .withTargetActivity(MainActivity.class)
                 .withSplashTimeOut(4000)
                 .withBackgroundColor(Color.parseColor("#3B5998"))
