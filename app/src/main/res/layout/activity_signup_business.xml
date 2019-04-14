@@ -48,7 +48,7 @@
 
 
     <RadioGroup
-        android:id="@+id/rgroup_signup_gender"
+        android:id="@+id/rgroup_signup_business"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"

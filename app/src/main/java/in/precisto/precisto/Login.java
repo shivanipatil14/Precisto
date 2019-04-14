@@ -17,5 +17,10 @@ public class Login extends AppCompatActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
+    public void forgotPass(View view) {
+        Intent intent = new Intent(this, FogotPassword.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
 
 }
