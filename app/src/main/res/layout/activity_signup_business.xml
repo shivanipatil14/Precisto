@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignupPersonal">
+
+    <EditText
+        android:id="@+id/et_signup_bname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="99sp"
+        android:layout_marginLeft="99sp"
+        android:layout_marginTop="326sp"
+        android:layout_marginEnd="99sp"
+        android:layout_marginRight="99sp"
+        android:layout_marginBottom="360sp"
+        android:ems="10"
+        android:hint="Business Name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/et_signup_lname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="99sp"
+        android:layout_marginLeft="99sp"
+        android:layout_marginTop="401sp"
+        android:layout_marginEnd="99sp"
+        android:layout_marginRight="99sp"
+        android:layout_marginBottom="285sp"
+        android:ems="10"
+        android:hint="Industry"
+        android:inputType="textPersonName" />
+
+
+    <RadioGroup
+        android:id="@+id/rgroup_signup_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="99sp"
+        android:layout_marginLeft="99sp"
+        android:layout_marginTop="477dp"
+        android:layout_marginEnd="99sp"
+        android:layout_marginRight="99sp"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/radio_signup_male"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="New Business" />
+
+        <RadioButton
+            android:id="@+id/radio_signup_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Existing Business" />
+    </RadioGroup>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_signup_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:layout_marginBottom="28dp"
+        android:background="@color/colorAccent"
+        android:clickable="true"
+        app:backgroundTint="@color/colorPrimary"
+        app:srcCompat="@drawable/ic_arrow_forward_black_35dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="150sp"
+        android:layout_height="35sp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="129dp"
+        android:layout_marginLeft="129dp"
+        android:layout_marginTop="268dp"
+        android:layout_marginEnd="132dp"
+        android:layout_marginRight="132dp"
+        android:layout_marginBottom="428dp"
+        android:gravity="center"
+        android:text="Business Details"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="291dp"
+        android:layout_height="106dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="61dp"
+        android:layout_marginRight="61dp"
+        android:layout_marginBottom="532dp"
+        app:srcCompat="@drawable/ic_precisto_full_logo_blue" />
+
+
+</RelativeLayout>
