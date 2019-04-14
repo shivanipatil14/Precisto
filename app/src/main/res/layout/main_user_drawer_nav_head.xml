@@ -2,26 +2,26 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="165sp"
+    android:layout_height="185sp"
     android:gravity="bottom"
     android:orientation="vertical"
     android:padding="16dp"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    android:background="@color/colorPrimary"
+    android:theme="@style/ThemeOverlay.AppCompat.Light">
 
     <ImageView
         android:id="@+id/profile_dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:src="@drawable/ic_person_black_100dp"
+        android:src="@drawable/ic_account_circle_white_100dp"
 
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Username"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/profile_dp"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"/>
+        android:translationX="20sp"
+        android:textColor="#ffffff"/>
 
 </RelativeLayout>
