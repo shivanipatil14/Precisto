@@ -23,8 +23,9 @@
         android:layout_marginRight="99sp"
         android:layout_marginBottom="472sp"
         android:ems="10"
-        android:hint="First Name"
-        android:inputType="textPersonName" />
+        android:hint="@string/first_name"
+        android:inputType="textPersonName"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/et_signup_lname"
@@ -43,8 +44,9 @@
         android:layout_marginRight="99sp"
         android:layout_marginBottom="401sp"
         android:ems="10"
-        android:hint="Last Name"
-        android:inputType="textPersonName" />
+        android:hint="@string/last_name"
+        android:inputType="textPersonName"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/et_signup_contact"
@@ -63,8 +65,9 @@
         android:layout_marginRight="99sp"
         android:layout_marginBottom="323sp"
         android:ems="10"
-        android:hint="Contact Number"
-        android:inputType="phone" />
+        android:hint="@string/contact_number"
+        android:inputType="phone"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/et_signup_email"
@@ -81,8 +84,9 @@
         android:layout_marginRight="99sp"
         android:layout_marginBottom="248sp"
         android:ems="10"
-        android:hint="E-mail"
-        android:inputType="textEmailAddress" />
+        android:hint="@string/e_mail"
+        android:inputType="textEmailAddress"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/et_signup_dob"
@@ -101,8 +105,9 @@
         android:layout_marginRight="99sp"
         android:layout_marginBottom="180sp"
         android:ems="10"
-        android:hint="DOB"
-        android:inputType="date" />
+        android:hint="@string/dob"
+        android:inputType="date"
+        android:autofillHints="" />
 
     <RadioGroup
         android:id="@+id/rgroup_signup_gender"
@@ -116,9 +121,9 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="99sp"
         android:layout_marginLeft="99sp"
-        android:layout_marginTop="568dp"
-        android:layout_marginEnd="81dp"
-        android:layout_marginRight="81dp"
+        android:layout_marginTop="568sp"
+        android:layout_marginEnd="81sp"
+        android:layout_marginRight="81sp"
         android:layout_marginBottom="130sp"
         android:orientation="horizontal">
 
@@ -126,7 +131,7 @@
             android:id="@+id/radio_signup_male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Male" />
+            android:text="@string/male" />
 
         <RadioButton
             android:id="@+id/radio_signup_female"
@@ -134,7 +139,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30sp"
             android:layout_marginLeft="30sp"
-            android:text="Female" />
+            android:text="@string/female" />
     </RadioGroup>
 
     <android.support.design.widget.FloatingActionButton
@@ -144,13 +149,14 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="43dp"
-        android:layout_marginRight="43dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="43sp"
+        android:layout_marginRight="43sp"
+        android:layout_marginBottom="28sp"
         android:background="@color/colorAccent"
         android:clickable="true"
         app:backgroundTint="@color/colorPrimary"
-        app:srcCompat="@drawable/ic_arrow_forward_black_35dp" />
+        app:srcCompat="@drawable/ic_arrow_forward_black_35dp"
+        android:focusable="true" />
 
     <TextView
         android:id="@+id/textView4"
@@ -162,29 +168,30 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="127dp"
-        android:layout_marginLeft="127dp"
-        android:layout_marginTop="172dp"
-        android:layout_marginEnd="134dp"
-        android:layout_marginRight="134dp"
-        android:layout_marginBottom="524dp"
+        android:layout_marginStart="127sp"
+        android:layout_marginLeft="127sp"
+        android:layout_marginTop="172sp"
+        android:layout_marginEnd="134sp"
+        android:layout_marginRight="134sp"
+        android:layout_marginBottom="524sp"
         android:gravity="center"
-        android:text="Personal Details"
+        android:text="@string/personal_details"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="291dp"
-        android:layout_height="106dp"
+        android:layout_width="291sp"
+        android:layout_height="106sp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="61dp"
-        android:layout_marginRight="61dp"
-        android:layout_marginBottom="589dp"
-        app:srcCompat="@drawable/ic_precisto_full_logo_blue" />
+        android:layout_marginEnd="61sp"
+        android:layout_marginRight="61sp"
+        android:layout_marginBottom="589sp"
+        app:srcCompat="@drawable/ic_precisto_full_logo_blue"
+        android:contentDescription="@string/todo" />
 
 
 </RelativeLayout>
