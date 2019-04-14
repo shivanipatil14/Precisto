@@ -28,12 +28,13 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="height" value="100" />
-                            <entry key="outputName" value="ic_account_circle_white_100dp" />
+                            <entry key="height" value="151" />
+                            <entry key="outputName" value="ic_precisto_logo_all_lue" />
                             <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="D:\Workspace\SVG\precisto_logo.svg" />
-                            <entry key="width" value="100" />
+                            <entry key="sourceFile" value="D:\Workspace\SVG\precisto_logo_lue.svg" />
+                            <entry key="width" value="350" />
                           </map>
                         </option>
                       </PersistentState>

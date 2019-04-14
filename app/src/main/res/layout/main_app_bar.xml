@@ -18,7 +18,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="20sp"
-            android:src="@drawable/ic_precisto_logo"
+            android:src="@drawable/ic_precisto_logo_white"
             android:translationX="-30sp" />
     </android.support.v7.widget.Toolbar>
 
