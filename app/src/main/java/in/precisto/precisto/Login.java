@@ -11,6 +11,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
     }
     public void login(View view) {
         Intent intent = new Intent(this, MainActivity.class);
@@ -18,7 +19,7 @@ public class Login extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
     public void forgotPass(View view) {
-        Intent intent = new Intent(this, FogotPassword.class);
+        Intent intent = new Intent(this, ForgotPassword.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }

@@ -106,9 +106,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         return true;
     }
-    public void login(View view) {
-        Intent intent = new Intent(this, SignupLogin.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-    }
+
 }

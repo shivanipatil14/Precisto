@@ -5,12 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class FogotPassword extends AppCompatActivity {
+public class ForgotPassword extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fogot_password);
+        setContentView(R.layout.activity_forgot_password);
     }
 
     public void sendEmail(View view)
