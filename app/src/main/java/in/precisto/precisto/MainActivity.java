@@ -47,31 +47,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         switch (menuItem.getItemId()) {
             case R.id.drawer_home:
-                Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
+                selectedFragment = new Home();
                 break;
             case R.id.drawer_profile:
-                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+                selectedFragment = new Profile();
                 break;
             case R.id.drawer_services:
-                Toast.makeText(this, "Services", Toast.LENGTH_SHORT).show();
+                selectedFragment=new Services();
                 break;
             case R.id.drawer_quotation:
-                Toast.makeText(this, "Quotations", Toast.LENGTH_SHORT).show();
+                selectedFragment=new Quotations();
                 break;
             case R.id.drawer_faq:
-                Toast.makeText(this, "FAQs", Toast.LENGTH_SHORT).show();
+                selectedFragment=new FAQs();
                 break;
             case R.id.drawer_contact:
-                Toast.makeText(this, "Contact us", Toast.LENGTH_SHORT).show();
+                selectedFragment=new ContactUs();
                 break;
             case R.id.drawer_about:
-                selectedFragment=new AboutUs();
+                selectedFragment=new AboutUs() ;
                 break;
             case R.id.drawer_tnc:
-                Toast.makeText(this, "Terms and Conditions", Toast.LENGTH_SHORT).show();
+                selectedFragment=new TermsConditions();
                 break;
             case R.id.drawer_privacy_policy:
-                Toast.makeText(this, "Privacy Policies", Toast.LENGTH_SHORT).show();
+                selectedFragment=new PrivacyPolicies();
                 break;
 
         }

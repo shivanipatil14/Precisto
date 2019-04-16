@@ -2,6 +2,7 @@ package in.precisto.precisto;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -36,29 +37,31 @@ public class SkippedUser extends AppCompatActivity implements NavigationView.OnN
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        Fragment selectedFragment=null;
 
         switch (menuItem.getItemId()) {
             case R.id.drawer_services_skipped:
-                Toast.makeText(this, "Services", Toast.LENGTH_SHORT).show();
+                selectedFragment=new Services();
                 break;
             case R.id.drawer_faq_skipped:
-                Toast.makeText(this, "FAQs", Toast.LENGTH_SHORT).show();
+                selectedFragment=new FAQs();
                 break;
             case R.id.drawer_contact_skipped:
-                Toast.makeText(this, "Contact us", Toast.LENGTH_SHORT).show();
+               selectedFragment=new ContactUs();
                 break;
             case R.id.drawer_about_skipped:
-                Toast.makeText(this, "About us", Toast.LENGTH_SHORT).show();
+                selectedFragment=new AboutUs();
                 break;
             case R.id.drawer_tnc_skipped:
-                Toast.makeText(this, "Terms and Conditions", Toast.LENGTH_SHORT).show();
+               selectedFragment=new TermsConditions();
                 break;
             case R.id.drawer_privacy_policy_skipped:
-                Toast.makeText(this, "Privacy Policies", Toast.LENGTH_SHORT).show();
+               selectedFragment=new PrivacyPolicies();
                 break;
 
         }
 
+        getSupportFragmentManager().beginTransaction().replace(R.id.skipped_content,selectedFragment).commit();
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
