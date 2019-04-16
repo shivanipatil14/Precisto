@@ -3,6 +3,7 @@ package in.precisto.precisto;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
+        Fragment selectedFragment=null;
+
         switch (menuItem.getItemId()) {
             case R.id.drawer_home:
                 Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
@@ -62,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Toast.makeText(this, "Contact us", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.drawer_about:
-                Toast.makeText(this, "About us", Toast.LENGTH_SHORT).show();
+                selectedFragment=new AboutUs();
                 break;
             case R.id.drawer_tnc:
                 Toast.makeText(this, "Terms and Conditions", Toast.LENGTH_SHORT).show();
@@ -73,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
 
-        drawer.closeDrawer(GravityCompat.START);
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_container,selectedFragment).commit();
         return true;
     }
 
