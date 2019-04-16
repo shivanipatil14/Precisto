@@ -131,6 +131,7 @@
         android:background="@color/colorAccent"
         android:clickable="true"
         android:focusable="true"
+        android:onClick="goToPasswordd"
         app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -138,7 +139,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.898"
-        app:srcCompat="@drawable/ic_arrow_forward_black_35dp" />
+        app:srcCompat="@drawable/ic_arrow_forward_black_35dp"
+        tools:ignore="OnClick" />
 
     <TextView
         android:id="@+id/textView4"

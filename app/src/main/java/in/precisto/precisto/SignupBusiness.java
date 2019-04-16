@@ -12,8 +12,9 @@ public class SignupBusiness extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_business);
     }
-    public void goToLogin(View view) {
-        Intent intent = new Intent(this, Login.class);
+
+    public void goToPasswordd(View view) {
+        Intent intent = new Intent(this, ConfirmPassword.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
