@@ -23,7 +23,8 @@ public class AboutUs extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view=inflater.inflate(R.layout.activity_about_us,container,false);
-        iva=(ImageView)view.findViewById(R.id.about_us_abhinav);
+
+       /* iva=(ImageView)view.findViewById(R.id.about_us_abhinav);
        // iva=new AppCompatActivity().findViewById(R.id.about_us_abhinav);
         Bitmap bitmap=BitmapFactory.decodeResource(getResources(),R.mipmap.abhinav);
         RoundedBitmapDrawable roundedBitmapDrawable=RoundedBitmapDrawableFactory.create(getResources(),bitmap);
@@ -36,7 +37,8 @@ public class AboutUs extends Fragment {
         RoundedBitmapDrawable roundedBitmapDrawable1=RoundedBitmapDrawableFactory.create(getResources(),bitmap);
         roundedBitmapDrawable.setCircular(true);
         ivu.setImageDrawable(roundedBitmapDrawable1);
+*/
 
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return view;
     }
 }

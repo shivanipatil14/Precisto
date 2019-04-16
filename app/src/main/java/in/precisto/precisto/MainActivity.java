@@ -77,6 +77,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         getSupportFragmentManager().beginTransaction().replace(R.id.main_container,selectedFragment).commit();
+
+        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
