@@ -22,15 +22,15 @@ public class AboutUs extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-
-        iva=(ImageView)container.findViewById(R.id.about_us_abhinav);
+        View view=inflater.inflate(R.layout.activity_about_us,container,false);
+        iva=(ImageView)view.findViewById(R.id.about_us_abhinav);
        // iva=new AppCompatActivity().findViewById(R.id.about_us_abhinav);
         Bitmap bitmap=BitmapFactory.decodeResource(getResources(),R.mipmap.abhinav);
         RoundedBitmapDrawable roundedBitmapDrawable=RoundedBitmapDrawableFactory.create(getResources(),bitmap);
         roundedBitmapDrawable.setCircular(true);
         iva.setImageDrawable(roundedBitmapDrawable);
 
-        ivu=(ImageView)container.findViewById(R.id.about_us_umair);
+        ivu=(ImageView)view.findViewById(R.id.about_us_umair);
         //ivu=new AppCompatActivity().findViewById(R.id.about_us_umair);
         Bitmap bitmap1=BitmapFactory.decodeResource(getResources(),R.mipmap.umair);
         RoundedBitmapDrawable roundedBitmapDrawable1=RoundedBitmapDrawableFactory.create(getResources(),bitmap);
