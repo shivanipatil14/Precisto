@@ -42,15 +42,5 @@
         </menu>
     </item>
 
-    <item android:title="Intel you must know">
-        <menu>
-            <item
-                android:id="@+id/drawer_tnc"
-                android:title="Terms and Conditions"/>
-            <item
-                android:id="@+id/drawer_privacy_policy"
-                android:title="Privacy Policies"/>
-        </menu>
-    </item>
 
 </menu>

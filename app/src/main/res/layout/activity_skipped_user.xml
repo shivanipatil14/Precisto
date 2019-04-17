@@ -25,7 +25,12 @@
             android:layout_gravity="start"
             android:id="@+id/skipped_drawer_view"
             app:headerLayout="@layout/skipped_user_drawer_nav_head"
-            app:menu="@menu/skipped_user_drawer_menu"/>
+            app:menu="@menu/skipped_user_drawer_menu">
+
+            <include
+                layout="@layout/skipped_user_drawer_nav_head" />
+
+        </android.support.design.widget.NavigationView>
 
 
     </android.support.v4.widget.DrawerLayout>

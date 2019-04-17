@@ -4,22 +4,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:theme="@style/AppTheme.NahiActionBar">
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/skipped_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:theme="@style/AppTheme.NahiActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="20sp"
-            android:src="@drawable/ic_precisto_logo_white"
-            android:translationX="-30sp" />
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:srcCompat="@drawable/ic_precisto_logo_white"
+            android:translationX="30sp" />
     </android.support.v7.widget.Toolbar>
 
     <include layout="@layout/skipped_content"/>

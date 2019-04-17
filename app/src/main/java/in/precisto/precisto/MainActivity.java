@@ -1,5 +1,6 @@
 package in.precisto.precisto;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -7,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -14,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -37,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_container,new Home()).commit();
+
 
     }
 
@@ -67,12 +73,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.drawer_about:
                 selectedFragment=new AboutUs() ;
                 break;
-            case R.id.drawer_tnc:
-                selectedFragment=new TermsConditions();
-                break;
-            case R.id.drawer_privacy_policy:
-                selectedFragment=new PrivacyPolicies();
-                break;
 
         }
 
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new Home()).commit();
         }
 
     }
@@ -105,11 +105,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
         if(item.getItemId() == R.id.action_logout) {
-            Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
-        } else if (item.getItemId() == R.id.action_exit) {
-            Toast.makeText(this, "Exit", Toast.LENGTH_SHORT).show();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setMessage("Do you want to log out?")
+                    .setCancelable(false)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(MainActivity.this, "Logged out", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
         }
         return true;
     }
 
+    public void tnc(View view) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_container,new TermsConditions()).commit();
+        drawer.closeDrawer(GravityCompat.START);
+    }
+
+    public void policy(View view) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_container,new PrivacyPolicies()).commit();
+        drawer.closeDrawer(GravityCompat.START);
+    }
 }

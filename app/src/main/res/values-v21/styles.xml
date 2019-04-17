@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme.NahiActionBar" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar">
+    <style name="AppTheme.NahiActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
