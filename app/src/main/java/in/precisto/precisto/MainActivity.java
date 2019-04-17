@@ -3,6 +3,7 @@ package in.precisto.precisto;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -42,36 +43,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
+        Fragment selectedFragment=null;
+
         switch (menuItem.getItemId()) {
             case R.id.drawer_home:
-                Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
+                selectedFragment = new Home();
                 break;
             case R.id.drawer_profile:
-                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+                selectedFragment = new Profile();
                 break;
             case R.id.drawer_services:
-                Toast.makeText(this, "Services", Toast.LENGTH_SHORT).show();
+                selectedFragment=new Services();
                 break;
             case R.id.drawer_quotation:
-                Toast.makeText(this, "Quotations", Toast.LENGTH_SHORT).show();
+                selectedFragment=new Quotations();
                 break;
             case R.id.drawer_faq:
-                Toast.makeText(this, "FAQs", Toast.LENGTH_SHORT).show();
+                selectedFragment=new FAQs();
                 break;
             case R.id.drawer_contact:
-                Toast.makeText(this, "Contact us", Toast.LENGTH_SHORT).show();
+                selectedFragment=new ContactUs();
                 break;
             case R.id.drawer_about:
-                Toast.makeText(this, "About us", Toast.LENGTH_SHORT).show();
+                selectedFragment=new AboutUs() ;
                 break;
             case R.id.drawer_tnc:
-                Toast.makeText(this, "Terms and Conditions", Toast.LENGTH_SHORT).show();
+                selectedFragment=new TermsConditions();
                 break;
             case R.id.drawer_privacy_policy:
-                Toast.makeText(this, "Privacy Policies", Toast.LENGTH_SHORT).show();
+                selectedFragment=new PrivacyPolicies();
                 break;
 
         }
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_container,selectedFragment).commit();
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
