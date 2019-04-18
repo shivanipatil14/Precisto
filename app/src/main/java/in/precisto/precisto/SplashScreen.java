@@ -26,6 +26,7 @@ public class SplashScreen extends AppCompatActivity {
                 public void run() {
                     Intent homeIntent = new Intent(SplashScreen.this, Slider.class);
                     startActivity(homeIntent);
+                    overridePendingTransition(R.anim.from_bottom, R.anim.to_top);
                     finish();
 
                 }
@@ -41,6 +42,7 @@ public class SplashScreen extends AppCompatActivity {
                 public void run() {
                     Intent homeIntent = new Intent(SplashScreen.this, SignupLogin.class);
                     startActivity(homeIntent);
+                    overridePendingTransition(R.anim.from_bottom, R.anim.to_top);
                     finish();
 
                 }

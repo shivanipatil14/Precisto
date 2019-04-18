@@ -13,9 +13,9 @@ import android.widget.RelativeLayout;
 public class SliderAdapter extends PagerAdapter {
 
     public int[] slideImages = {
-            R.mipmap.abhinav,
-            R.mipmap.umair,
-            R.mipmap.umair
+            R.drawable.ca,
+            R.drawable.im,
+            R.drawable.thor
     };
 
 
