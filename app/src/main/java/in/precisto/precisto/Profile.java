@@ -15,4 +15,5 @@ public class Profile extends Fragment{
         View view=inflater.inflate(R.layout.fragment_profile,container,false);
         return view;
     }
+
 }

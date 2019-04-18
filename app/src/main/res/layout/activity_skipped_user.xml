@@ -28,7 +28,7 @@
             app:menu="@menu/skipped_user_drawer_menu">
 
             <include
-                layout="@layout/skipped_user_drawer_nav_head" />
+                layout="@layout/skipped_user_drawer_nav_foot" />
 
         </android.support.design.widget.NavigationView>
 

@@ -35,7 +35,7 @@ public class SkippedUser extends AppCompatActivity implements NavigationView.OnN
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_container,new Services()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.skipped_content,new Services()).commit();
     }
 
     @Override
@@ -68,18 +68,18 @@ public class SkippedUser extends AppCompatActivity implements NavigationView.OnN
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            getSupportFragmentManager().beginTransaction().replace(R.id.main_container,new Services()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.skipped_content,new Services()).commit();
         }
 
     }
 
     public void skipped_tnc(View view) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_container,new TermsConditions()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.skipped_content,new TermsConditions()).commit();
         drawer.closeDrawer(GravityCompat.START);
     }
 
     public void skipped_policy(View view) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_container,new PrivacyPolicies()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.skipped_content,new PrivacyPolicies()).commit();
         drawer.closeDrawer(GravityCompat.START);
     }
 }
