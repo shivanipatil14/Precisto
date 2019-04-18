@@ -23,7 +23,7 @@ public class SignupPersonal extends AppCompatActivity {
 
     final Calendar myCalendar = Calendar.getInstance(TimeZone.getDefault());
 
-    EditText fname,lname,contact,dob,email;
+    EditText fname, lname, contact, dob, email;
     RadioGroup gender;
     RadioButton select;
     FloatingActionButton next;
@@ -60,7 +60,7 @@ public class SignupPersonal extends AppCompatActivity {
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     new DatePickerDialog(SignupPersonal.this, date, myCalendar
                             .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                             myCalendar.get(Calendar.DAY_OF_MONTH)).show();
@@ -84,7 +84,6 @@ public class SignupPersonal extends AppCompatActivity {
     }
 
 
-
     public void goToBusiness(View view) {
         Intent intent = new Intent(this, SignupBusiness.class);
 
@@ -96,36 +95,26 @@ public class SignupPersonal extends AppCompatActivity {
         //select = findViewById(gender.getCheckedRadioButtonId());
         //String gen = select.getText().toString();
 
-        if(TextUtils.isEmpty(firstname))
-        {
-            Toast.makeText(getApplicationContext(),"Enter First Name",Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(firstname)) {
+            Toast.makeText(getApplicationContext(), "Enter First Name", Toast.LENGTH_SHORT).show();
             return;
-        }
-        else{
-            if(TextUtils.isEmpty(lasttname))
-            {
-                Toast.makeText(getApplicationContext(),"Enter Last Name",Toast.LENGTH_SHORT).show();
+        } else {
+            if (TextUtils.isEmpty(lasttname)) {
+                Toast.makeText(getApplicationContext(), "Enter Last Name", Toast.LENGTH_SHORT).show();
                 return;
-            }
-            else{
-                if(TextUtils.isEmpty(phone))
-                {
-                    Toast.makeText(getApplicationContext(),"Enter Valid Contact Number",Toast.LENGTH_SHORT).show();
+            } else {
+                if (TextUtils.isEmpty(phone)) {
+                    Toast.makeText(getApplicationContext(), "Enter Valid Contact Number", Toast.LENGTH_SHORT).show();
                     return;
-                }
-                else {
-                    if(!phone.matches(MobilePattern))
-                    {
-                        Toast.makeText(getApplicationContext(),"Please provide a valid 10 digit contact number",Toast.LENGTH_SHORT).show();
+                } else {
+                    if (!phone.matches(MobilePattern)) {
+                        Toast.makeText(getApplicationContext(), "Please provide a valid 10 digit contact number", Toast.LENGTH_SHORT).show();
                         return;
-                    }
-                    else {
-                    if(TextUtils.isEmpty(emailid))
-                    {
-                        Toast.makeText(getApplicationContext(),"Enter Valid Email",Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                        else {
+                    } else {
+                        if (TextUtils.isEmpty(emailid)) {
+                            Toast.makeText(getApplicationContext(), "Enter Valid Email", Toast.LENGTH_SHORT).show();
+                            return;
+                        } else {
                             if (!emailid.matches(emailPattern)) {
                                 Toast.makeText(getApplicationContext(), "Please provide your valid Email address", Toast.LENGTH_SHORT).show();
                                 return;
@@ -133,23 +122,18 @@ public class SignupPersonal extends AppCompatActivity {
                                 if (TextUtils.isEmpty(emailid)) {
                                     Toast.makeText(getApplicationContext(), "Enter Valid Email", Toast.LENGTH_SHORT).show();
                                     return;
-                                }
-                                else {
+                                } else {
                                     if (TextUtils.isEmpty(dob1)) {
                                         Toast.makeText(getApplicationContext(), "Enter Date of Birth", Toast.LENGTH_SHORT).show();
                                         return;
-                                    }
-                                    else{
-                                        if(gender.getCheckedRadioButtonId() == -1)
-                                        {
+                                    } else {
+                                        if (gender.getCheckedRadioButtonId() == -1) {
                                             Toast.makeText(getApplicationContext(), "Please Select Gender", Toast.LENGTH_SHORT).show();
                                             return;
+                                        } else {
+                                            startActivity(intent);
+                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                                         }
-
-                                        else{
-                                                startActivity(intent);
-                                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                                            }
                                     }
                                 }
                             }
@@ -159,7 +143,6 @@ public class SignupPersonal extends AppCompatActivity {
                 }
             }
         }
-
 
 
     }

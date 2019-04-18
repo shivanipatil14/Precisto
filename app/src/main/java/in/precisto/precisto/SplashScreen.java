@@ -1,11 +1,14 @@
 package in.precisto.precisto;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class SplashScreen extends AppCompatActivity {
+
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -13,14 +16,35 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent homeIntent=new Intent(SplashScreen.this,SignupLogin.class);
-                startActivity(homeIntent);
-                finish();
+        preferences = getSharedPreferences("preferences", MODE_PRIVATE);
+        boolean firstStart=preferences.getBoolean("firstStart",true);
 
-            }
-        },2000);
+
+        if (firstStart) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent homeIntent = new Intent(SplashScreen.this, Slider.class);
+                    startActivity(homeIntent);
+                    finish();
+
+                }
+            }, 2000);
+
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("firstStart",false);
+            editor.apply();
+
+        } else {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent homeIntent = new Intent(SplashScreen.this, SignupLogin.class);
+                    startActivity(homeIntent);
+                    finish();
+
+                }
+            }, 2000);
+        }
     }
 }
