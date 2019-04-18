@@ -38,7 +38,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             android:ems="10"
-            android:hint="@string/username"
+            android:hint="E-mail"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +68,7 @@
         android:focusableInTouchMode="false">
 
         <EditText
-            android:id="@+id/_loginet_pass"
+            android:id="@+id/login_et_pass"
             android:layout_width="231dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

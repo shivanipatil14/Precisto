@@ -22,6 +22,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawer = findViewById(R.id.main_drawer_layout);
 
-        NavigationView navigationView = findViewById(R.id.main_drawer_view);
+        navigationView = findViewById(R.id.main_drawer_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         ActionBarDrawerToggle toggle =  new ActionBarDrawerToggle(this,drawer,toolbar,
@@ -112,6 +113,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            Intent intent=new Intent(getApplicationContext(),Login.class);
+                            startActivity(intent);
+
                             Toast.makeText(MainActivity.this, "Logged out", Toast.LENGTH_SHORT).show();
                         }
                     })

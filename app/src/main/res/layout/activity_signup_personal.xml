@@ -182,6 +182,7 @@
     </android.support.design.widget.TextInputLayout>
 
     <RadioGroup
+        android:id="@+id/rgroup_signup"
         android:layout_width="183dp"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
@@ -213,7 +214,7 @@
     </RadioGroup>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/btn_signup_next"
+        android:id="@+id/btn_signup_pnext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
