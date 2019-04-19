@@ -36,7 +36,7 @@ public class SkippedUser extends AppCompatActivity implements NavigationView.OnN
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView.getMenu().findItem(R.id.drawer_home).setChecked(true);
+        navigationView.getMenu().findItem(R.id.drawer_services_skipped).setChecked(true);
         getSupportFragmentManager().beginTransaction().replace(R.id.skipped_content,new Services()).commit();
     }
 
@@ -70,10 +70,10 @@ public class SkippedUser extends AppCompatActivity implements NavigationView.OnN
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            if (navigationView.getMenu().findItem(R.id.drawer_home).isChecked()) {
+            if (navigationView.getMenu().findItem(R.id.drawer_services_skipped).isChecked()) {
                 super.onBackPressed();
             } else {
-                navigationView.getMenu().findItem(R.id.drawer_home).setChecked(true);
+                navigationView.getMenu().findItem(R.id.drawer_services_skipped).setChecked(true);
                 getSupportFragmentManager().beginTransaction().replace(R.id.skipped_content, new Home()).commit();
             }
         }

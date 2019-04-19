@@ -39,6 +39,9 @@
                 android:id="@+id/drawer_about"
                 android:title="About us"
                 android:icon="@drawable/ic_about"/>
+            <item
+                android:id="@+id/qwerty"
+                android:title=""/>
         </menu>
     </item>
 
