@@ -10,7 +10,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class SignupBusiness extends AppCompatActivity {
-    EditText businessName,industry;
+    EditText businessName, industry;
     RadioGroup type;
 
     @Override
@@ -28,24 +28,18 @@ public class SignupBusiness extends AppCompatActivity {
         String bname = businessName.getText().toString();
         String iname = industry.getText().toString();
 
-        if(TextUtils.isEmpty(bname))
-        {
-            Toast.makeText(getApplicationContext(),"Enter Business Name",Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(bname)) {
+            Toast.makeText(getApplicationContext(), "Enter Business Name", Toast.LENGTH_SHORT).show();
             return;
-        }
-        else{
-            if(TextUtils.isEmpty(iname))
-            {
-                Toast.makeText(getApplicationContext(),"Enter Industry",Toast.LENGTH_SHORT).show();
+        } else {
+            if (TextUtils.isEmpty(iname)) {
+                Toast.makeText(getApplicationContext(), "Enter Industry", Toast.LENGTH_SHORT).show();
                 return;
-            }
-            else {
-                if(type.getCheckedRadioButtonId() == -1)
-            {
-                Toast.makeText(getApplicationContext(), "Please Select Business Type", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            else {
+            } else {
+                if (type.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(getApplicationContext(), "Please Select Business Type", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 }
@@ -55,8 +49,8 @@ public class SignupBusiness extends AppCompatActivity {
         }
 
 
-
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();

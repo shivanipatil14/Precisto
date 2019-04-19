@@ -41,6 +41,7 @@ public class ConfirmPassword extends AppCompatActivity {
                         Intent intent = new Intent(this, Login.class);
                         startActivity(intent);
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                        finish();
                     } else {
                         Toast.makeText(getApplicationContext(), "Password doesn't match", Toast.LENGTH_SHORT).show();
                     }
