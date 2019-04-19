@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 public class SkippedUser extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private NavigationView navigationView;
     private DrawerLayout drawer;
 
     @Override
@@ -27,7 +28,7 @@ public class SkippedUser extends AppCompatActivity implements NavigationView.OnN
 
         drawer = findViewById(R.id.skipped_drawer_layout);
 
-        NavigationView navigationView = findViewById(R.id.skipped_drawer_view);
+        navigationView = findViewById(R.id.skipped_drawer_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         ActionBarDrawerToggle toggle =  new ActionBarDrawerToggle(this,drawer,toolbar,
@@ -35,6 +36,7 @@ public class SkippedUser extends AppCompatActivity implements NavigationView.OnN
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        navigationView.getMenu().findItem(R.id.drawer_home).setChecked(true);
         getSupportFragmentManager().beginTransaction().replace(R.id.skipped_content,new Services()).commit();
     }
 
@@ -68,7 +70,12 @@ public class SkippedUser extends AppCompatActivity implements NavigationView.OnN
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            getSupportFragmentManager().beginTransaction().replace(R.id.skipped_content,new Services()).commit();
+            if (navigationView.getMenu().findItem(R.id.drawer_home).isChecked()) {
+                super.onBackPressed();
+            } else {
+                navigationView.getMenu().findItem(R.id.drawer_home).setChecked(true);
+                getSupportFragmentManager().beginTransaction().replace(R.id.skipped_content, new Home()).commit();
+            }
         }
 
     }

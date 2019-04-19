@@ -37,12 +37,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.main_drawer_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ActionBarDrawerToggle toggle =  new ActionBarDrawerToggle(this,drawer,toolbar,
-                R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_container,new Home()).commit();
+        navigationView.getMenu().findItem(R.id.drawer_home).setChecked(true);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new Home()).commit();
 
 
     }
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-        Fragment selectedFragment=null;
+        Fragment selectedFragment = null;
 
         switch (menuItem.getItemId()) {
             case R.id.drawer_home:
@@ -60,25 +62,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 selectedFragment = new Profile();
                 break;
             case R.id.drawer_services:
-                selectedFragment=new Services();
+                selectedFragment = new Services();
                 break;
             case R.id.drawer_quotation:
-                selectedFragment=new Quotations();
+                selectedFragment = new Quotations();
                 break;
             case R.id.drawer_faq:
-                selectedFragment=new FAQs();
+                selectedFragment = new FAQs();
                 break;
             case R.id.drawer_contact:
-                selectedFragment=new ContactUs();
+                selectedFragment = new ContactUs();
                 break;
             case R.id.drawer_about:
-                selectedFragment=new AboutUs() ;
+                selectedFragment = new AboutUs();
                 break;
 
         }
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_container,selectedFragment).commit();
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, selectedFragment).commit();
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -89,7 +90,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new Home()).commit();
+            if (navigationView.getMenu().findItem(R.id.drawer_home).isChecked()) {
+                super.onBackPressed();
+            } else {
+                navigationView.getMenu().findItem(R.id.drawer_home).setChecked(true);
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new Home()).commit();
+            }
         }
 
     }
@@ -98,14 +104,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.main_action_menu,menu);
+        menuInflater.inflate(R.menu.main_action_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
-        if(item.getItemId() == R.id.action_logout) {
+        if (item.getItemId() == R.id.action_logout) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
             builder.setMessage("Do you want to log out?")
@@ -113,9 +119,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Intent intent=new Intent(getApplicationContext(),Login.class);
+                            Intent intent = new Intent(getApplicationContext(), Login.class);
                             startActivity(intent);
-
+                            finish();
                             Toast.makeText(MainActivity.this, "Logged out", Toast.LENGTH_SHORT).show();
                         }
                     })
@@ -132,12 +138,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void tnc(View view) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_container,new TermsConditions()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new TermsConditions()).commit();
         drawer.closeDrawer(GravityCompat.START);
     }
 
     public void policy(View view) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_container,new PrivacyPolicies()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new PrivacyPolicies()).commit();
         drawer.closeDrawer(GravityCompat.START);
     }
 }
