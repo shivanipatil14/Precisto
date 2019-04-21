@@ -8,11 +8,12 @@
     android:theme="@style/Theme.Design.NoActionBar">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="395dp"
         android:layout_height="715dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
@@ -21,7 +22,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.458">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -38,11 +39,11 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="false"
-                android:layout_marginStart="44dp"
-                android:layout_marginLeft="44dp"
-                android:layout_marginTop="52dp"
-                android:layout_marginEnd="246dp"
-                android:layout_marginRight="246dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginEnd="242dp"
+                android:layout_marginRight="242dp"
                 android:layout_marginBottom="300dp"
                 android:src="@mipmap/abhinav"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -63,11 +64,11 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="false"
-                android:layout_marginStart="214dp"
-                android:layout_marginLeft="214dp"
-                android:layout_marginTop="58dp"
-                android:layout_marginEnd="67dp"
-                android:layout_marginRight="67dp"
+                android:layout_marginStart="225dp"
+                android:layout_marginLeft="225dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="56dp"
+                android:layout_marginRight="56dp"
                 android:layout_marginBottom="293dp"
                 android:src="@mipmap/umair"
                 app:layout_constraintHorizontal_bias="0.88"
@@ -77,29 +78,33 @@
                 app:srcCompat="@mipmap/umair" />
 
             <TextView
-                android:id="@+id/about_us_text"
-                android:layout_width="wrap_content"
-                android:layout_height="535dp"
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="316dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="false"
-                android:layout_marginStart="18dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginTop="257dp"
-                android:layout_marginEnd="4dp"
-                android:layout_marginRight="4dp"
-                android:layout_marginBottom="163dp"
-                android:text="@string/dfffffffffffffffffffffffffffddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="194dp"
+                android:layout_marginBottom="20dp"
+                android:alpha="1"
+                android:editable="false"
+                android:ems="5"
+                android:focusable="false"
+                android:gravity="center|left"
+                android:paddingLeft="20dp"
+                android:scrollbarSize="@dimen/fab_margin"
+                android:scrollbars="vertical"
+                android:text="•	We are the team of strategist, consultants, creatives and developers that work together from a ground up to deliver quantifiable results.                                                                                    •	We the company as a brand development and lead generating engine which is not practiced spray and pray marketing.                                                                          •	It allows you to  evaluate your brand needs and develop a powerful strategy that maximizes your profits and uplifts your brand awareness from local to global."
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
 
 
-
-</RelativeLayout>
+        </RelativeLayout>
     </ScrollView>
-
 
 
 </android.support.constraint.ConstraintLayout>
