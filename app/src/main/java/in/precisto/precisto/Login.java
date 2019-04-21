@@ -34,8 +34,6 @@ public class Login extends AppCompatActivity {
         login = (Button) findViewById(R.id.btn_login_login);
 
         mAuth= FirebaseAuth.getInstance();
-
-
     }
 
     public void login(View view) {
