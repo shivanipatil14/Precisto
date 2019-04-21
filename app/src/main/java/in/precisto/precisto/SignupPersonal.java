@@ -23,12 +23,12 @@ public class SignupPersonal extends AppCompatActivity {
 
     final Calendar myCalendar = Calendar.getInstance(TimeZone.getDefault());
 
-    EditText fname, lname, contact, dob, email;
-    RadioGroup gender;
-    RadioButton select;
-    FloatingActionButton next;
-    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-    String MobilePattern = "[0-9]{10}";
+   public EditText fname, lname, contact, dob, email;
+   public RadioGroup gender;
+   public RadioButton select;
+   public FloatingActionButton next;
+   public String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+   public String MobilePattern = "[0-9]{10}";
 
 
     @Override
