@@ -13,9 +13,9 @@ import android.widget.RelativeLayout;
 public class SliderAdapter extends PagerAdapter {
 
     public int[] slideImages = {
-            R.drawable.ca,
-            R.drawable.im,
-            R.drawable.thor
+            R.drawable.slider_1,
+            R.drawable.slider_2,
+            R.drawable.slider_3
     };
 
 

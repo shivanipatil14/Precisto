@@ -110,7 +110,7 @@ public class Slider extends AppCompatActivity {
             dots[i] = new TextView(this);
             dots[i].setText(Html.fromHtml("&#8226"));
             dots[i].setTextSize(35);
-            dots[i].setTextColor(getResources().getColor(R.color.colorPrimary));
+            dots[i].setTextColor(getResources().getColor(R.color.ic_launcher_background));
             dotLayout.addView(dots[i]);
         }
 
