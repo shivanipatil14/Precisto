@@ -1,7 +1,6 @@
 package in.precisto.precisto;
 
 import android.app.DatePickerDialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +14,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -27,7 +25,8 @@ import java.util.TimeZone;
 public class SignupPersonal extends AppCompatActivity {
 
     final Calendar myCalendar = Calendar.getInstance(TimeZone.getDefault());
-
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
    public EditText fname, lname, contact, dob, email;
    public RadioGroup gender;
    public RadioButton select;
@@ -35,18 +34,11 @@ public class SignupPersonal extends AppCompatActivity {
    public String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
    public String MobilePattern = "[0-9]{10}";
 
-    private FirebaseAuth mAuth;
-    private DatabaseReference databaseReference;
-    private FirebaseDatabase firebaseDatabase;
-    private ProgressDialog mProSignUp;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_personal);
-
-        mProSignUp=new ProgressDialog(this);
 
         fname = findViewById(R.id.et_signup_fname);
         lname = findViewById(R.id.et_signup_lname);
@@ -84,9 +76,6 @@ public class SignupPersonal extends AppCompatActivity {
 
         gender = findViewById(R.id.rgroup_signup);
         next = findViewById(R.id.btn_signup_pnext);
-
-        mAuth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference("p_user");
 
     }
 
@@ -145,10 +134,10 @@ public class SignupPersonal extends AppCompatActivity {
                                         if (gender.getCheckedRadioButtonId() == -1) {
                                             Toast.makeText(getApplicationContext(), "Please Select Gender", Toast.LENGTH_SHORT).show();
                                             return;
-                                        } /*else {
+                                        } else {
                                             startActivity(intent);
                                             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                                        }*/
+                                        }
                                     }
                                 }
                             }
@@ -159,10 +148,7 @@ public class SignupPersonal extends AppCompatActivity {
             }
         }
 
-        mProSignUp.setTitle("Registering User");
-        mProSignUp.setMessage("Please wait while we create your account");
-        mProSignUp.setCanceledOnTouchOutside(false);
-        mProSignUp.show();
+
     }
 
     @Override
