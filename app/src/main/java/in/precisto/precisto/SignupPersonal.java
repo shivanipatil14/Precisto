@@ -25,14 +25,16 @@ import java.util.TimeZone;
 public class SignupPersonal extends AppCompatActivity {
 
     final Calendar myCalendar = Calendar.getInstance(TimeZone.getDefault());
+
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-   public EditText fname, lname, contact, dob, email;
-   public RadioGroup gender;
-   public RadioButton select;
-   public FloatingActionButton next;
-   public String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-   public String MobilePattern = "[0-9]{10}";
+    public EditText fname, lname, contact, dob, email;
+    public RadioGroup gender;
+    public RadioButton select;
+    public RadioButton female, male;
+    public FloatingActionButton next;
+    public String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    public String MobilePattern = "[0-9]{10}";
 
 
     @Override
@@ -45,6 +47,8 @@ public class SignupPersonal extends AppCompatActivity {
         contact = findViewById(R.id.et_signup_contact);
         email = findViewById(R.id.et_signup_email);
         dob = findViewById(R.id.et_signup_dob);
+        male = (RadioButton) findViewById(R.id.radio_signup_male);
+        female = (RadioButton) findViewById(R.id.radio_signup_female);
 
 
         final DatePickerDialog.OnDateSetListener date = new
@@ -90,12 +94,24 @@ public class SignupPersonal extends AppCompatActivity {
 
     public void goToBusiness(View view) {
         Intent intent = new Intent(this, SignupBusiness.class);
+        /*Intent intent=new Intent(this,SecondActivity.class);
+
+
+        startActivity(intent);
+    */
 
         String firstname = fname.getText().toString();
-        String lasttname = lname.getText().toString();
+        String lastname = lname.getText().toString();
         String phone = contact.getText().toString();
         String emailid = email.getText().toString();
         String dob1 = dob.getText().toString();
+        String gender1 = "";
+        if (male.isChecked()) {
+            gender1 = "male";
+        } else if (female.isChecked()) {
+            gender1 = "female";
+        }
+
         //select = findViewById(gender.getCheckedRadioButtonId());
         //String gen = select.getText().toString();
 
@@ -103,7 +119,7 @@ public class SignupPersonal extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Enter First Name", Toast.LENGTH_SHORT).show();
             return;
         } else {
-            if (TextUtils.isEmpty(lasttname)) {
+            if (TextUtils.isEmpty(lastname)) {
                 Toast.makeText(getApplicationContext(), "Enter Last Name", Toast.LENGTH_SHORT).show();
                 return;
             } else {
@@ -135,6 +151,12 @@ public class SignupPersonal extends AppCompatActivity {
                                             Toast.makeText(getApplicationContext(), "Please Select Gender", Toast.LENGTH_SHORT).show();
                                             return;
                                         } else {
+                                            intent.putExtra("pfirstname", firstname);
+                                            intent.putExtra("plastname", lastname);
+                                            intent.putExtra("pphone", phone);
+                                            intent.putExtra("pemailid", emailid);
+                                            intent.putExtra("pdob", dob1);
+                                            intent.putExtra("pgender", gender1);
                                             startActivity(intent);
                                             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                                         }
@@ -147,6 +169,9 @@ public class SignupPersonal extends AppCompatActivity {
                 }
             }
         }
+
+
+        //intent.putExtra("contact",et4.getText().toString());
 
 
     }
