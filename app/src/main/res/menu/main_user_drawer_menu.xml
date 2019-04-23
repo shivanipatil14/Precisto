@@ -41,7 +41,8 @@
                 android:icon="@drawable/ic_about"/>
             <item
                 android:id="@+id/qwerty"
-                android:title=""/>
+                android:title=""
+                android:enabled="false"/>
         </menu>
     </item>
 

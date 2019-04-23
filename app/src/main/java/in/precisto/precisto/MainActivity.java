@@ -16,6 +16,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +27,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private DrawerLayout drawer;
     private NavigationView navigationView;
+
+    EditText fname, lname, contact, dob, email, gen, bname, industry, btype;
+    Button edit,save;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-        @Override
+    @Override
     public void onBackPressed() {
 
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -94,6 +100,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             if (navigationView.getMenu().findItem(R.id.drawer_home).isChecked()) {
                 super.onBackPressed();
+            } else if (navigationView.getMenu().findItem(R.id.drawer_home).isChecked()) {
+                fname = (EditText) findViewById(R.id.et_profile_fname);
+                lname = (EditText) findViewById(R.id.et_profile_lname);
+                contact = (EditText) findViewById(R.id.et_profile_contact);
+                dob = (EditText) findViewById(R.id.et_profile_dob);
+                email = (EditText) findViewById(R.id.et_profile_email);
+                gen = (EditText) findViewById(R.id.et_profile_gen);
+                bname = (EditText) findViewById(R.id.et_profile_business_name);
+                industry = (EditText) findViewById(R.id.et_profile_industry);
+                btype = (EditText) findViewById(R.id.et_profile_business_type);
+                edit = (Button) findViewById(R.id.btn_profile_edit);
+                save = (Button) findViewById(R.id.btn_profile_save);
+                
+                if (fname.isEnabled()) {
+                    fname.setEnabled(false);
+                    lname.setEnabled(false);
+                    contact.setEnabled(false);
+                    dob.setEnabled(false);
+                    email.setEnabled(false);
+                    gen.setEnabled(false);
+                    bname.setEnabled(false);
+                    industry.setEnabled(false);
+                    btype.setEnabled(false);
+
+                    save.setVisibility(View.INVISIBLE);
+                    edit.setVisibility(View.VISIBLE);
+                } else {
+                    navigationView.getMenu().findItem(R.id.drawer_home).setChecked(true);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new Home()).commit();
+                }
             } else {
                 navigationView.getMenu().findItem(R.id.drawer_home).setChecked(true);
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new Home()).commit();
