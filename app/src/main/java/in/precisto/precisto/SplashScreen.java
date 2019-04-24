@@ -24,7 +24,7 @@ public class SplashScreen extends AppCompatActivity {
         use = mAuth.getCurrentUser();
 
         preferences = getSharedPreferences("preferences", MODE_PRIVATE);
-        boolean firstStart=preferences.getBoolean("firstStart",true);
+        boolean firstStart = preferences.getBoolean("firstStart", true);
 
 
         if (firstStart) {
@@ -40,20 +40,19 @@ public class SplashScreen extends AppCompatActivity {
             }, 2000);
 
             SharedPreferences.Editor editor = preferences.edit();
-            editor.putBoolean("firstStart",false);
+            editor.putBoolean("firstStart", false);
             editor.apply();
 
         } else {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    if(use==null){
-                    Intent homeIntent = new Intent(SplashScreen.this, SignupLogin.class);
-                    startActivity(homeIntent);
-                    overridePendingTransition(R.anim.from_bottom, R.anim.to_top);
-                    finish();
-                    }
-                    else{
+                    if (use == null) {
+                        Intent homeIntent = new Intent(SplashScreen.this, SignupLogin.class);
+                        startActivity(homeIntent);
+                        overridePendingTransition(R.anim.from_bottom, R.anim.to_top);
+                        finish();
+                    } else {
                         Intent homeIntent = new Intent(SplashScreen.this, MainActivity.class);
                         startActivity(homeIntent);
                         overridePendingTransition(R.anim.from_bottom, R.anim.to_top);
