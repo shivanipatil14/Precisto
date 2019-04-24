@@ -28,12 +28,14 @@ public class SignupLogin extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         finish();
     }
+
     public void skip(View view) {
         Intent intent = new Intent(this, SkippedUser.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         finish();
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();

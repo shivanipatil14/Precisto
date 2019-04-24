@@ -1,7 +1,9 @@
 package in.precisto.precisto;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.view.PagerAdapter;
 import android.text.Layout;
 import android.view.LayoutInflater;
@@ -38,14 +40,15 @@ public class SliderAdapter extends PagerAdapter {
         return view == (RelativeLayout) object;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.slide_layout, container, false);
         ImageView slideImageView = view.findViewById(R.id.slide_image);
-
         slideImageView.setImageResource(slideImages[position]);
+        slideImageView.setClipToOutline(true);
         container.addView(view);
         return view;
     }
