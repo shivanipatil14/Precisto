@@ -23,13 +23,14 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import static in.precisto.precisto.Profile.ptemp;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
     private NavigationView navigationView;
 
-    EditText fname, lname, contact, dob, email, gen, bname, industry, btype;
-    Button edit,save;
+    static boolean flag = false;
 
 
     @Override
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         navigationView = findViewById(R.id.main_drawer_view);
         navigationView.setNavigationItemSelectedListener(this);
+
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -100,36 +102,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             if (navigationView.getMenu().findItem(R.id.drawer_home).isChecked()) {
                 super.onBackPressed();
-            } else if (navigationView.getMenu().findItem(R.id.drawer_home).isChecked()) {
-                fname = (EditText) findViewById(R.id.et_profile_fname);
-                lname = (EditText) findViewById(R.id.et_profile_lname);
-                contact = (EditText) findViewById(R.id.et_profile_contact);
-                dob = (EditText) findViewById(R.id.et_profile_dob);
-                email = (EditText) findViewById(R.id.et_profile_email);
-                gen = (EditText) findViewById(R.id.et_profile_gen);
-                bname = (EditText) findViewById(R.id.et_profile_business_name);
-                industry = (EditText) findViewById(R.id.et_profile_industry);
-                btype = (EditText) findViewById(R.id.et_profile_business_type);
-                edit = (Button) findViewById(R.id.btn_profile_edit);
-                save = (Button) findViewById(R.id.btn_profile_save);
-                
-                if (fname.isEnabled()) {
-                    fname.setEnabled(false);
-                    lname.setEnabled(false);
-                    contact.setEnabled(false);
-                    dob.setEnabled(false);
-                    email.setEnabled(false);
-                    gen.setEnabled(false);
-                    bname.setEnabled(false);
-                    industry.setEnabled(false);
-                    btype.setEnabled(false);
+            } else if (navigationView.getMenu().findItem(R.id.drawer_profile).isChecked()) {
 
-                    save.setVisibility(View.INVISIBLE);
-                    edit.setVisibility(View.VISIBLE);
+                if (flag) {
+                    ptemp.fname.setEnabled(false);
+                    ptemp.lname.setEnabled(false);
+                    ptemp.contact.setEnabled(false);
+                    ptemp.dob.setEnabled(false);
+                    ptemp.email.setEnabled(false);
+                    ptemp.gen.setEnabled(false);
+                    ptemp.bname.setEnabled(false);
+                    ptemp.industry.setEnabled(false);
+                    ptemp.btype.setEnabled(false);
+
+                    ptemp.save.setVisibility(View.INVISIBLE);
+                    ptemp.edit.setVisibility(View.VISIBLE);
+                    flag = false;
                 } else {
                     navigationView.getMenu().findItem(R.id.drawer_home).setChecked(true);
                     getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new Home()).commit();
                 }
+
             } else {
                 navigationView.getMenu().findItem(R.id.drawer_home).setChecked(true);
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new Home()).commit();

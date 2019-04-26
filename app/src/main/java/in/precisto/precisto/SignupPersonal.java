@@ -113,7 +113,7 @@ public class SignupPersonal extends AppCompatActivity {
         }
 
         //select = findViewById(gender.getCheckedRadioButtonId());
-        //String gen = select.getText().toString();
+        //String gender = select.getText().toString();
 
         if (TextUtils.isEmpty(firstname)) {
             Toast.makeText(getApplicationContext(), "Enter First Name", Toast.LENGTH_SHORT).show();

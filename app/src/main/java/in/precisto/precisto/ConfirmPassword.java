@@ -18,9 +18,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ConfirmPassword extends AppCompatActivity {
 
 
@@ -37,7 +34,7 @@ public class ConfirmPassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_password);
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("P_user");
+        databaseReference = firebaseDatabase.getReference("Users");
         mAuth = FirebaseAuth.getInstance();
         mProSignup = new ProgressDialog(this);
         pass = findViewById(R.id.et_cpass_pass);
@@ -90,7 +87,7 @@ public class ConfirmPassword extends AppCompatActivity {
                                     loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     use = mAuth.getCurrentUser();
                                     String id = use.getUid();
-                                    final Map<String, String> datamap = new HashMap<String, String>();
+                                    /*final Map<String, String> datamap = new HashMap<String, String>();
                                     datamap.put("firstname", firstname);
                                     datamap.put("lastname", lastname);
                                     datamap.put("phone", phone);
@@ -100,9 +97,22 @@ public class ConfirmPassword extends AppCompatActivity {
                                     datamap.put("password",password);
                                     datamap.put("businessname", businessname);
                                     datamap.put("industryname", industryname);
-                                    datamap.put("businesstype", businesstype);
+                                    datamap.put("businesstype", businesstype);*/
 
-                                    databaseReference.child(id).setValue(datamap);
+                                    UserInfo userInfo =  new UserInfo();
+                                    userInfo.setFirstName(firstname);
+                                    userInfo.setLastName(lastname);
+                                    userInfo.setContact(phone);
+                                    userInfo.setEmail(emailid);
+                                    userInfo.setDob(dob);
+                                    userInfo.setGender(gender);
+                                    userInfo.setPassword(password);
+                                    userInfo.setBusinessName(businessname);
+                                    userInfo.setIndustry(industryname);
+                                    userInfo.setBusinessType(businesstype);
+
+                                    databaseReference.child(id).child("ProfileInfo").setValue(userInfo);
+
                                     startActivity(loginIntent);
                                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                                     finish();
