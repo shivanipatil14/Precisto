@@ -20,15 +20,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
+
 public class Profile extends Fragment {
 
     EditText fname, lname, contact, dob, email, gen, bname, industry, btype;
     Button edit, save;
-    public static Profile ptemp = new Profile();
+    static Profile ptemp = new Profile();
     DatabaseReference mProfileReference;
     ProgressDialog mProfileDialog;
 
-    UserInfo userInfo;
+    static UserInfo userInfo;
 
 
     @Nullable
@@ -119,6 +120,8 @@ public class Profile extends Fragment {
                 ptemp.edit.setVisibility(View.INVISIBLE);
 
                 MainActivity.flag = true;
+
+
             }
         });
 

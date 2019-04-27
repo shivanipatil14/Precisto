@@ -27,6 +27,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginBottom="5dp"
         android:ems="13"
+        android:focusableInTouchMode="true"
         android:hint="Type a message"
         android:inputType="textPersonName"
         android:paddingLeft="10dp"

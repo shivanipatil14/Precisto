@@ -33,6 +33,9 @@ public class ConfirmPassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_password);
+
+        FirebaseAuth.getInstance().signOut();
+
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Users");
         mAuth = FirebaseAuth.getInstance();

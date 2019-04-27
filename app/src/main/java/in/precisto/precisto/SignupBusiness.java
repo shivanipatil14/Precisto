@@ -40,8 +40,9 @@ public class SignupBusiness extends AppCompatActivity {
 
     }
 
-    public void goToPasswordd(View view) {
-        Intent intent = new Intent(this, ConfirmPassword.class);
+    public void goToPassword(View view) {
+        //Intent intent = new Intent(this, ConfirmPassword.class);
+        Intent intent = new Intent(this, SendOtp.class);
 
         businesstype = "";
         if (newBusiness.isChecked()) {

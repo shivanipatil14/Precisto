@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="in.precisto.precisto">
 
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Slider"/>
+        <activity android:name=".SendOtp"></activity>
+        <activity android:name=".Slider" />
         <activity android:name=".ConfirmPassword" />
         <activity android:name=".SignupBusiness" />
         <activity android:name=".SignupLogin" />
@@ -34,7 +38,5 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>

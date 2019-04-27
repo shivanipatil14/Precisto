@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 
 import static in.precisto.precisto.Profile.ptemp;
+import static in.precisto.precisto.Profile.userInfo;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -118,6 +119,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     ptemp.save.setVisibility(View.INVISIBLE);
                     ptemp.edit.setVisibility(View.VISIBLE);
                     flag = false;
+
+                    ptemp.fname.setText(userInfo.getFirstName());
+                    ptemp.lname.setText(userInfo.getLastName());
+                    ptemp.contact.setText(userInfo.getContact());
+                    ptemp.dob.setText(userInfo.getDob());
+                    ptemp.email.setText(userInfo.getEmail());
+                    ptemp.gen.setText(userInfo.getGender());
+                    ptemp.bname.setText(userInfo.getBusinessName());
+                    ptemp.industry.setText(userInfo.getIndustry());
+                    ptemp.btype.setText(userInfo.getBusinessType());
+
+
                 } else {
                     navigationView.getMenu().findItem(R.id.drawer_home).setChecked(true);
                     getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new Home()).commit();
@@ -151,7 +164,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             FirebaseAuth.getInstance().signOut();
-                            Intent intent = new Intent(getApplicationContext(), Login.class);
+                            Intent intent = new Intent(getApplicationContext(), SignupLogin.class);
                             startActivity(intent);
                             finish();
                             Toast.makeText(MainActivity.this, "Logged out", Toast.LENGTH_SHORT).show();

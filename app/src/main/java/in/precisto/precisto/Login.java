@@ -67,16 +67,6 @@ public class Login extends AppCompatActivity {
                     if (TextUtils.isEmpty(pass)) {
                         Toast.makeText(getApplicationContext(), "Enter Valid Password", Toast.LENGTH_SHORT).show();
                         return;
-                    } else {
-                        if (pass.length() < 8) {
-                            Toast.makeText(getApplicationContext(), "Password should have at least 8 characters", Toast.LENGTH_SHORT).show();
-                            return;
-                        } /*else {
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        finish();
-                    }*/
-
                     }
                 }
             }

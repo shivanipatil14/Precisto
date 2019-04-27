@@ -8,8 +8,8 @@
     tools:context=".SignupPersonal">
 
 
-
     <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -106,6 +106,7 @@
             android:ems="10"
             android:hint="@string/contact_number"
             android:inputType="phone"
+            android:maxEms="10"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -254,7 +255,7 @@
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
