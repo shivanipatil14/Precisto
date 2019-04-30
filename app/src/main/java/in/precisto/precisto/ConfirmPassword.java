@@ -114,6 +114,7 @@ public class ConfirmPassword extends AppCompatActivity {
                                     userInfo.setIndustry(industryname);
                                     userInfo.setBusinessType(businesstype);
 
+
                                     databaseReference.child(id).child("ProfileInfo").setValue(userInfo);
 
                                     startActivity(loginIntent);

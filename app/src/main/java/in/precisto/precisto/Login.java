@@ -19,6 +19,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -29,7 +34,7 @@ import java.net.UnknownHostException;
 public class Login extends AppCompatActivity {
     EditText username, password;
     Button login;
-    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+", adminUsername, adminPassword;
     private FirebaseAuth mAuth;
     private ProgressDialog mProLogin;
 
@@ -44,6 +49,7 @@ public class Login extends AppCompatActivity {
         login = (Button) findViewById(R.id.btn_login_login);
 
         mAuth = FirebaseAuth.getInstance();
+
     }
 
     public void login(View view) {
@@ -94,20 +100,30 @@ public class Login extends AppCompatActivity {
         finish();
     }
 
-    private void signin(String user, String pass) {
+    private void signin(final String user, String pass) {
 
+        final String tempuser = user, temppassword = pass;
         mAuth.signInWithEmailAndPassword(user, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+
                     mProLogin.dismiss();
-                    Intent loginIntent = new Intent(Login.this, MainActivity.class);
-                    loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(loginIntent);
+                    if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals("MKG5JZqoxIS1Qu2zFDowUfZXdVM2")) {
+
+                        Intent loginIntent = new Intent(Login.this, AdminPanel.class);
+                        loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(loginIntent);
+                    } else {
+
+                        Intent loginIntent = new Intent(Login.this, MainActivity.class);
+                        loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(loginIntent);
+                    }
 
                 } else {
                     mProLogin.dismiss();
-                    Toast.makeText(getApplication(), "UserName Or Password Incorrect", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplication(), "Username Or Password Incorrect", Toast.LENGTH_SHORT).show();
                 }
             }
         });

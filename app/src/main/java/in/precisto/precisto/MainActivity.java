@@ -22,6 +22,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import static in.precisto.precisto.Profile.ptemp;
 import static in.precisto.precisto.Profile.userInfo;
@@ -30,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private DrawerLayout drawer;
     private NavigationView navigationView;
+    private TextView profilename, username;
+    private DatabaseReference mProfileReference;
 
     static boolean flag = false;
 
@@ -56,7 +64,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.getMenu().findItem(R.id.drawer_home).setChecked(true);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new Home()).commit();
-
 
     }
 
@@ -149,6 +156,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.main_action_menu, menu);
+
+        profilename = (TextView) findViewById(R.id.drawer_profile_name);
+        username = (TextView) findViewById(R.id.drawer_profile_user_name);
+
+        final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        //FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+
+        mProfileReference = FirebaseDatabase.getInstance().getReference("Users").child(uid).child("ProfileInfo");
+
+        ValueEventListener profileListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                UserInfo userInfo = dataSnapshot.getValue(UserInfo.class);
+
+                profilename.setText(userInfo.getFirstName() + " " + userInfo.getLastName());
+                username.setText(userInfo.getEmail());
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+                Toast.makeText(getApplicationContext(), "Failed to load details", Toast.LENGTH_SHORT).show();
+
+            }
+        };
+        mProfileReference.addValueEventListener(profileListener);
+
         return super.onCreateOptionsMenu(menu);
     }
 

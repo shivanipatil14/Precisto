@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SendOtp"></activity>
+        <activity android:name=".AdminPanel"
+            android:label="Admin Panel"/>
+        <activity android:name=".SendOtp" />
         <activity android:name=".Slider" />
         <activity android:name=".ConfirmPassword" />
         <activity android:name=".SignupBusiness" />
