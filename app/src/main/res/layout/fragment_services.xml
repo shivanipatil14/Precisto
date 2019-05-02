@@ -53,30 +53,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:focusable="auto"
-                android:foreground="@mipmap/abhinav"
                 app:cardCornerRadius="@dimen/fab_margin"
                 app:cardElevation="5dp" />
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:foreground="@mipmap/charmander" />
+                android:layout_height="400dp" />
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:foreground="@drawable/button_blue" />
+                android:layout_height="400dp" />
 
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:foreground="@drawable/ic_account_circle_red_100dp" />
+                android:layout_height="400dp" />
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:foreground="@drawable/common_google_signin_btn_icon_dark_normal" />
+                android:layout_height="400dp" />
 
 
         </LinearLayout>
